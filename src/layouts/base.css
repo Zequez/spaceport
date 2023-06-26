@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.rainbow-gradient {
+  background: linear-gradient(to right,
+    oklch(80% .25 30) 14.28%,
+    oklch(80% .25 75) 0 28.57%,
+    oklch(80% .25 120) 0 42.85%,
+    oklch(80% .25 165) 0 57.14%,
+    oklch(80% .25 210) 0 71.43%,
+    oklch(80% .25 255) 0 85.71%,
+    oklch(80% .25 300) 0 100%
+  );
+}
+
 .markdown {
   letter-spacing: 0.25px;
 }

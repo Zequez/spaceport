@@ -1,5 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import App from "../components/App";
+
+const sites = await getCollection("sites");
 ---
 
-<Layout title="Spaceport - a StartOver.xyz Launch Pad">Hello spaceport</Layout>
+<Layout title="Spaceport - a StartOver.xyz Launch Pad">
+  <App sites={sites} client:load />
+</Layout>

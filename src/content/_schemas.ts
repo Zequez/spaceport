@@ -1,5 +1,5 @@
 import { z } from "astro:content";
-import { codes as languageCodes } from "./languages";
+import { codes as languageCodes } from "./_languages";
 
 export const alsoSeeSchema = z.string().or(z.object({ src: z.string(), text: z.string() }));
 
@@ -16,17 +16,16 @@ export const categoryTags = z.enum([
   "region",
 ]);
 
-export const siteSchema = z.object({
-  slug: z.string(),
+export const site = z.object({
   title: z.string(),
-  externalAuthor: z.string(),
+  externalAuthor: z.optional(z.string()),
   expandedTitle: z.optional(z.string()),
   url: z.string(),
   description: z.optional(z.string()),
-  lang: z.enum(languageCodes as unknown as readonly [string, ...string[]]),
-  alsoSee: z.array(alsoSeeSchema),
+  lang: z.enum(languageCodes as unknown as readonly [string, ...string[]]).default("en"),
+  alsoSee: z.array(alsoSeeSchema).default([]),
   replacedBy: z.optional(z.string()),
-  translations: z.optional(z.array(z.string())),
-  isPlaceholder: z.boolean(),
-  categories: z.array(categoryTags),
+  translations: z.array(z.string()).default([]),
+  isPlaceholder: z.boolean().default(false),
+  categories: z.array(categoryTags).default([]),
 });
