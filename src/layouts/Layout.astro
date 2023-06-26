@@ -1,0 +1,32 @@
+---
+import "./base.css";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <title>Spaceport - a StartOver.xyz Launch Pad</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="#ffffff" name="theme-color" />
+    <meta name="description" content="A simple website with a payment processing feature" />
+    <meta content="/assets/sites-thumbnails/spaceport.webp" itemprop="image" />
+    <meta
+      content="This website (http://spaceport.mystrikingly.com) is a catalog of all the websites in the http://StartOver.xyz free-to-play massively-multiplayer online-and-offline matrix-building thoughtware-upgrade personal-transformation real-life adventure-game. (http://howtoplay.mystrikingly.com).
+      You may be reading this website because you are an Edgeworker (http://edgeworker.org), a Riftwalker (http://riftwalkers.org), a Possibilitator (http://possibilitators.xyz), a Seed (http://becomeaseed.mystrikingly.com), a Villager (http://villaging.mystrikingly.com), a Whole Permaculturist (http://wholepermaculture.org), a Healer (http://3phasehealing.org), an Earth Guardian (http://earthguardian.xyz), a Village Weaver (http://villageweavers.mystrikingly.com), an Evolutionary (http://evolutionaries.mystrikingly.com), or a Gameworld Builder (http://gameworldbuilder.org).
+
+      The more intensely it is revealed that modern culture (http://patriarchy.strikingly.com) is unable to create a bright future for humanity, the faster next cultures emerge (http://archearchy.org). Those experiments where neither masculine (patriarchy) nor feminine (matriarchy) qualities dominate, where instead, there is creative collaboration between authentically initiated adult women and authentically initiated adult men for a regenerative future, these are thriving cultures of archearchy. This website is part of the StartOver.xyz free-to-play massively-multiplayer online-and-offline personal-transformation matrix-building thoughtware-upgrade adventure-game (http://howtoplay.mystrikingly.com). By reading this website all the way through you earn yourself 1 Matrix Point. By actually doing each experiment suggested on this website you earn additional Matrix Points, for real, not just in a fantasy world. We have the theory that if we can together earn 1 million new Matrix Points, we will cause a change for the better in the status quo of human beings on Earth. You can register your Matrix Points at http://startover.xyz.
+      Powered by Possibility Management (http://possibilitymanagement.org). The clarity and experiments from Possibility Management facilitate the shift from Homo sapiens sapiens, to Homo evolutio conscio... (consciously evolving humans)… same hardware, upgraded thoughtware. #archearchy, #archetypallineage, #consciousfeelings, #countenance, #distinctionary, #expandthebox, #harbigarrr, #highlevelfun, #initiations, #nanonations, #newrefugees, #nextculture, #personaldevelopment, #possibilitator, #possibilitymanagement, #possibility, #radicalresponsibility, #rapidlearning, #sparks, #startover, #stellating, #thoughtware, #thoughtwareupgrades, #trainerpath, #training, #transformation, #annechloedestremau, #clintoncallahan."
+      itemprop="description"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/sites-thumbnails/spaceport.webp" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

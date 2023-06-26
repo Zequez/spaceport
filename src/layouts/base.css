@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.markdown {
+  letter-spacing: 0.25px;
+}
+
+.markdown strong {
+  @apply font-bold;
+}
+
+.markdown em {
+  @apply italic;
+}
+
+.markdown a {
+  @apply outline outline-blue-300 bg-blue-100 text-blue-500 rounded-sm px-1;
+}
+
+.markdown a:hover {
+  @apply bg-blue-400 text-white outline-blue-500;
+}
+
+/* .markdown a[href^="http"]:after {
+  content: '↘';
+  margin-left: 0.25rem;
+  border: solid 1.5px currentColor;
+  font-weight: 300;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  height: 12px;
+  width: 12px;
+  padding-left: 2px;
+  padding-top: 2px;
+  line-height: 13px;
+  font-size: 18px;
+  transform: scaleY(-0.75) scaleX(0.75);
+} */
+
+.markdown p {
+  @apply mb-4;
+}
+
+.markdown h1 {
+  @apply mb-4 text-4xl font-bold tracking-wider;
+}
+
+.markdown h2 {
+  @apply mb-4 text-3xl font-bold tracking-wider;
+}
+
+.markdown h3 {
+  @apply mb-4 text-2xl font-bold tracking-wider;
+}
+
+.markdown h4 {
+  @apply mb-4 text-xl font-bold tracking-wider;
+}
+
+.markdown ul {
+  @apply mb-4 pl-4 list-disc;
+}
+
+.markdown li {
+  @apply mb-0;
+}
