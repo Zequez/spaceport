@@ -59,6 +59,14 @@ export default function App({ sites }: { sites: Site[] }) {
     });
   }
 
+  function siteToTextLink(slug: string) {
+    const site = siteBySlug.get(slug);
+    if (!site) {
+      return `[[${slug}]]`;
+    }
+    return <a href={site.data.url}>[[{site.data.title}]]</a>;
+  }
+
   return (
     <div className="relative h-screen w-screen bg-slate-600 overflow-y-scroll text-white">
       <nav className="fixed z-10 inset-y-0 right-0 w-12 sm:w-20 bg-black/30"></nav>
@@ -91,7 +99,10 @@ export default function App({ sites }: { sites: Site[] }) {
         className="border bg-white/90 overflow-hidden text-black/80 border-white/20 rounded-md flex shadow-md"
       >
         <a href={site.data.url} className="flex-shrink-0">
-          <img className="h-40" src={imageBySlug(site.slug)} />
+          <img
+            className="h-40"
+            src={site.data.replacedBy ? "/assets/moved.webp" : imageBySlug(site.slug)}
+          />
         </a>
         <div>
           <h3
@@ -100,6 +111,12 @@ export default function App({ sites }: { sites: Site[] }) {
           >
             {site.data.title}
           </h3>
+          {site.data.replacedBy ? (
+            <div className="px-2 mb-4 markdown">
+              <strong>NOTE:</strong> The website has been moved to{" "}
+              {siteToTextLink(site.data.replacedBy)}
+            </div>
+          ) : null}
           {site.data.categories.length ? (
             <div className="px-2 mb-4">
               {site.data.categories.map((cat) => (
