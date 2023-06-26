@@ -27,7 +27,7 @@
 }
 
 .markdown a {
-  @apply outline outline-blue-300 bg-blue-100 text-blue-500 rounded-sm px-1;
+  @apply outline outline-blue-300 bg-blue-100 text-blue-500 rounded-sm;
 }
 
 .markdown a:hover {
