@@ -62,6 +62,7 @@ export function useSites(sites: Site[]) {
               src={imageBySlug(siteSlug)}
               alt={site.data.title}
               className="inline-block h-8 w-8 mr-2"
+              loading="lazy"
             />
             {site.data.title}
           </a>
@@ -95,12 +96,17 @@ export function useSites(sites: Site[]) {
     [siteBySlug]
   );
 
-  return {
-    imageBySlug: imageBySlug,
-    byLetter: sitesByLetter,
-    bySlug: siteBySlug,
-    toLink: siteToLink,
-    linkifySlugsInText: replaceSlugsWithLink,
-    linkifySlug: slugToTextLink,
-  };
+  const s = useMemo(
+    () => ({
+      imageBySlug: imageBySlug,
+      byLetter: sitesByLetter,
+      bySlug: siteBySlug,
+      toLink: siteToLink,
+      linkifySlugsInText: replaceSlugsWithLink,
+      linkifySlug: slugToTextLink,
+    }),
+    []
+  );
+
+  return s;
 }

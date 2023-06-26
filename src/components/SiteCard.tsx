@@ -1,5 +1,3 @@
-import type { CollectionEntry } from "astro:content";
-
 import type { Site, SitesUtils } from "../lib/useSites";
 
 export default function SiteCard({ site, s }: { site: Site; s: SitesUtils }) {
@@ -10,8 +8,9 @@ export default function SiteCard({ site, s }: { site: Site; s: SitesUtils }) {
     >
       <a href={site.data.url} className="flex-shrink-0">
         <img
-          className="h-40"
+          className="h-40 w-40"
           src={site.data.replacedBy ? "/assets/moved.webp" : s.imageBySlug(site.slug)}
+          loading="lazy"
         />
       </a>
       <div>
