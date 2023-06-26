@@ -6,7 +6,7 @@ import App from "../components/App";
 
 const collection = await getCollection("sites");
 const sites = collection.map((site) => {
-  site.body = marked.parse(site.body, { mangle: false });
+  site.body = marked.parse(site.body, { mangle: false, headerIds: false });
   return site;
 });
 ---

@@ -8,11 +8,24 @@ function imageBySlug(slug: string) {
   return "/assets/sites-thumbnails/" + slug + ".webp";
 }
 
+function numberAwareCompare(a: string, b: string) {
+  console.log(a, a.match(/^[0-9]+/));
+  if (a.match(/^[0-9]+/) && b.match(/^[0-9]+/)) {
+    console.log("Number aware compar!", a, b);
+    const val = parseInt(a) - parseInt(b);
+    if (val === 0) {
+      return a.replace(/^[0-9]+/, "").localeCompare(b.replace(/^[0-9]+/, ""));
+    } else {
+      return val;
+    }
+  } else {
+    return a.localeCompare(b);
+  }
+}
+
 export default function App({ sites }: { sites: Site[] }) {
   const sitesByLetter = useMemo(() => {
-    const alphabeticalSites = sites.sort((a, b) => {
-      return a.slug.localeCompare(b.slug);
-    });
+    const alphabeticalSites = sites.sort((a, b) => numberAwareCompare(a.slug, b.slug));
     return alphabeticalSites.reduce((all, val) => {
       const firstLetter = val.slug[0];
       const category = isNaN(parseInt(firstLetter)) ? firstLetter.toUpperCase() : "#'s";
