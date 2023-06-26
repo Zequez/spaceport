@@ -1,9 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { marked } from "marked";
 import App from "../components/App";
 
-const sites = await getCollection("sites");
+const collection = await getCollection("sites");
+const sites = collection.map((site) => {
+  site.body = marked.parse(site.body, { mangle: false });
+  return site;
+});
 ---
 
 <Layout title="Spaceport - a StartOver.xyz Launch Pad">

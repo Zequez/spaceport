@@ -1,7 +1,7 @@
 import { z } from "astro:content";
 import { codes as languageCodes } from "./_languages";
 
-export const alsoSeeSchema = z.string().or(z.object({ src: z.string(), text: z.string() }));
+export const alsoSeeSchema = z.string().or(z.object({ url: z.string(), text: z.string() }));
 
 export const categoryTags = z.enum([
   "pmprocess",
