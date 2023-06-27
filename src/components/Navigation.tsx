@@ -58,10 +58,21 @@ export default function Navigation({
     [lettersMousePos]
   );
 
+  const [highlightedLetter, setHighlightedLetter] = useState<null | string>(null);
+
+  // useEffect(() => {
+  //   if (closestLetter) setHighlightedLetter(closestLetter);
+  // }, [closestLetter]);
+
+  useEffect(() => {
+    setHighlightedLetter(currentlyAt);
+  }, [currentlyAt]);
+
   useEffect(() => {
     if (closestLetter) {
       if (isTouching) {
         onPick(closestLetter);
+        setHighlightedLetter(closestLetter);
       } else {
         onPreview(closestLetter);
       }
@@ -70,7 +81,10 @@ export default function Navigation({
 
   const handleTouchEnd = useCallback(() => {
     setIsTouching(false);
-    if (closestLetter) onPick(closestLetter);
+    if (closestLetter) {
+      onPick(closestLetter);
+      setHighlightedLetter(closestLetter);
+    }
     setLettersMousePos(null);
     setLeftMousePos(null);
   }, [closestLetter]);
@@ -99,6 +113,22 @@ export default function Navigation({
     }
   }, []);
 
+  const handleMouseDown = useCallback(
+    (ev: React.MouseEvent<HTMLDivElement>) => {
+      setIsTouching(true);
+      ev.preventDefault();
+      if (closestLetter) onPick(closestLetter);
+      function handleMouseUp() {
+        setIsTouching(false);
+        // setLettersMousePos(null);
+        // setLeftMousePos(null);
+        window.removeEventListener("mouseup", handleMouseUp);
+      }
+      window.addEventListener("mouseup", handleMouseUp);
+    },
+    [closestLetter]
+  );
+
   function handleTouchMove(ev: React.TouchEvent<HTMLDivElement>) {
     handleLettersPositioning(ev.targetTouches[0].clientX, ev.targetTouches[0].clientY);
   }
@@ -116,6 +146,7 @@ export default function Navigation({
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onClick={handleClick}
+        onMouseDown={handleMouseDown}
       >
         {/* {lettersMousePos !== null ? (
           <div
@@ -141,7 +172,7 @@ export default function Navigation({
               href={`#${letter}`}
               key={letter}
               className={cx("relative  text-center group", {
-                "bg-white/20": currentlyAt === letter,
+                "bg-white/20": highlightedLetter === letter,
               })}
               style={style}
             >

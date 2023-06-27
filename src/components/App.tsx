@@ -8,6 +8,8 @@ import { throttle } from "../lib/utils";
 
 type Site = CollectionEntry<"sites">;
 
+let preventScrollEvent = false;
+
 export default function App({ sites }: { sites: Site[] }) {
   const s = useSites(sites);
   const [scrollSection, setScrollSection] = useState(
@@ -18,6 +20,7 @@ export default function App({ sites }: { sites: Site[] }) {
 
   useEffect(() => {
     const handleScroll = throttle(() => {
+      if (preventScrollEvent) return;
       const halfHeight = window.innerHeight / 2;
       const elements = Array.from(document.querySelectorAll("[id]"));
       const index = elements
@@ -49,11 +52,15 @@ export default function App({ sites }: { sites: Site[] }) {
 
   function handlePickLetter(letter: string) {
     setScrollSection(letter);
+    preventScrollEvent = true;
+    setTimeout(() => {
+      preventScrollEvent = false;
+    }, 100);
     document.location.hash = `#${letter}`;
   }
 
   function handlePreviewLetter(letter: string | null) {
-    console.log("Previewing letter", letter);
+    // console.log("Previewing letter", letter);
   }
 
   const lettersEntries = useMemo(() => Array.from(s.byLetter), [s.byLetter]);
