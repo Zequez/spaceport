@@ -47,6 +47,15 @@ export default function App({ sites }: { sites: Site[] }) {
     };
   }, []);
 
+  function handlePickLetter(letter: string) {
+    setScrollSection(letter);
+    document.location.hash = `#${letter}`;
+  }
+
+  function handlePreviewLetter(letter: string | null) {
+    console.log("Previewing letter", letter);
+  }
+
   const lettersEntries = useMemo(() => Array.from(s.byLetter), [s.byLetter]);
   const letters = useMemo(() => Array.from(s.byLetter.keys()), [s.byLetter]);
 
@@ -56,8 +65,8 @@ export default function App({ sites }: { sites: Site[] }) {
         letters={letters}
         thumb={s.imageBySlug("spaceport")}
         currentlyAt={scrollSection}
-        onPick={(letter) => console.log("Picking letter", letter)}
-        onPreview={(letter) => console.log("Previewing letter", letter)}
+        onPick={handlePickLetter}
+        onPreview={handlePreviewLetter}
       />
       <div className="relative h-screen overflow-hidden pr-12 sm:pr-20" id="header">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-right bg-cover bg-[url(/assets/bg.avif)]"></div>
@@ -80,7 +89,7 @@ export default function App({ sites }: { sites: Site[] }) {
           </div>
         ))}
       </div>
-      <div id="footer" className="h-screen">
+      <div id="footer" className="h-screen pr-12 sm:pr-20 pl-4 py-4">
         <div>
           <h2>DIRECTORY OF POSSIBILITY MANAGEMENT (PM) WEBSITES</h2>
         </div>
