@@ -134,7 +134,7 @@ export default function Navigation({
   }
 
   return (
-    <nav className="fixed z-10 inset-y-0 right-0 w-12 sm:w-20 bg-black/30 flex flex-col">
+    <nav className="fixed z-10 inset-y-0 right-0 w-12 sm:w-20 bg-black/20 flex flex-col">
       <a href="#">
         <img src={thumb} className="w-12 h-12 sm:w-20 sm:h-20" />
       </a>
