@@ -172,15 +172,18 @@ export default function Navigation({
               href={`#${letter}`}
               key={letter}
               className={cx("relative  text-center group", {
-                "bg-white/20": highlightedLetter === letter,
+                "bg-black/20": highlightedLetter === letter || closestLetter === letter,
+                "rounded-r-md": closestLetter === letter,
               })}
               style={style}
             >
-              <span className="block h-0">{letter}</span>
+              <span className="block absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
+                {letter}
+              </span>
               {closestLetter === letter ? (
                 <span
                   className={cx(
-                    "flex absolute h-12 w-12 bg-black/80 font-black text-xl rounded-full top-0 right-[100%] -mt-3 items-center justify-center"
+                    "flex absolute h-12 w-12 bg-black font-black text-xl rounded-full top-[50%] right-[100%] -mr-4 translate-y-[-50%] items-center justify-center"
                   )}
                 >
                   {letter}
