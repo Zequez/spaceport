@@ -10,6 +10,7 @@ specifiers:
   '@types/react': ^18.0.21
   '@types/react-dom': ^18.0.6
   astro: ^2.5.1
+  classnames: ^2.3.2
   marked: ^5.1.0
   react: ^18.0.0
   react-dom: ^18.0.0
@@ -22,6 +23,7 @@ dependencies:
   '@astrojs/vercel': 3.4.0_astro@2.5.1+react@18.2.0
   '@tailwindcss/line-clamp': 0.4.4_tailwindcss@3.3.2
   astro: 2.5.1_@types+node@20.2.1
+  classnames: 2.3.2
   marked: 5.1.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1417,6 +1419,10 @@ packages:
   /ci-info/3.8.0:
     resolution: {integrity: sha512-eXTggHWSooYhq49F2opQhuHWgzucfF2YgODK4e1566GQs5BIfP30B0oenwBJHfWxAs2fyPB1s7Mg949zLf61Yw==}
     engines: {node: '>=8'}
+    dev: false
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: false
 
   /cli-boxes/3.0.0:

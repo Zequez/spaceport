@@ -1,0 +1,38 @@
+## DIRECTORY OF POSSIBILITY MANAGEMENT (PM) WEBSITES
+
+- To search the StartOver.xyz univere, please use: https://nextculturenow.com/possibility-search
+- For info about HOW TO PLAY StartOver.xyz, please visit: howtoplay.mystrikingly.com
+- To register for Expand The Box Training or Possibility Labs, please visit: possibilitymanagement.org
+- To register for PM related WorkTalks, Workshops, etc., please visit our Teamup Calendar: hteamup.com/ksqigc5yvcag3dordv
+- For info about Possibilitator Training, please visit: possibilitatortraining.mystrikingly.com
+- For info about Possibilitators and their Projects, please visit: possibilitymanagers.mystrikingly.com
+- For PM history, roots, shoots, fruits, hoots, and books, please visit: museumofpm.mystrikingly.com
+- For info about Expand The Box Training, please visit: expandthebox.mystrikingly.com
+- For info about Possibility Labs, please visit: possibilitylabs.mystrikingly.com
+- For info about Authentic Adulthood Initiatory Processes, please visit: initiations.mystrikingly.com
+- For info about Archiarchy, please visit: archiarchy.mystrikingly.com
+- For info about Torus Meeting Technology, please visit: torustechnology.mystrikingly.com
+- For PM Distinctions, please visit: distinctionary.mystrikingly.com
+- For PM Thoughtmaps, please visit: pmthoughtmaps.mystrikingly.com
+- For PM Processes, please visit: pmprocesses.mystrikingly.com
+- For PM Podcasts, please visit: nextcultureradio.org
+- For PM Videos, please visit: youtube.com/PossibilityManagementTV
+- For PM recommended Books, please visit: possibilitybooks.mystrikingly.com
+- For PM recommended Films, please visit: possibilityfilms.mystrikingly.com
+- For S.P.A.R.K.s (Specific Practical Applications of Radical Knowledge), please visit: sparks-english.mystrikingly.com
+- For S.T.A.R.R.s (Startling Tales About Radical Responsibility), please visit: starrs.mystrikingly.com
+- For PM Articles, please visit: jewelsofpossibility.mystrikingly.com
+- To view over 100 sample Emotional Healing Process (EHP) videos with Possibility Coaching, please visit: createpossibility.mystrikingly.com
+- To join the EHP Collaboration Telegram Group, please use this link: http://t.me/joinchat/WC5Px3vhJLpGU-Cz
+- To join the PM Events Telegram Group, please use this link: https://t.me/+z6dG4whLcaAwZGM6
+- To join the Possibility Creation Village Telegram Group, please use this link: https://t.me/+ViEuN7pEHlcSDlCv
+- For info about Bridge-House, please visit: bridge-house.mystrikingly.com
+- For info about Rage Club, please visit: rageclub.mystrikingly.com
+- For info about Fear Club, please visit: fearclub.mystrikingly.com
+- For info about becoming a Feelings Practitioner, please visit: feelingspractitioner.com
+- For info about becoming a Possibility Coach, please visit: possibilitycoachingtraining.mystrikingly.com
+- For info about becoming a Possibility Mediator, please visit: possibilitymediationtraining.mystrikingly.com
+- For info about becoming an Expand The Box Trainer, please visit: practiceexpandthebox.mystrikingly.com
+- To register your StartOverxyz.mystrikingly.com Matrix Points in your free account, please visit: https://login.startover.xyz
+- For info about the Possibility Management gameworld, please visit: possibilitymanagement.mystrikingly.com
+- For info about PM Trainers, please visit pmtrainers.mystrikingly.com

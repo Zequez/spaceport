@@ -1,50 +1,65 @@
 import type { CollectionEntry } from "astro:content";
 import Header from "./Header";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import { useSites } from "../lib/useSites";
 import SiteCard from "./SiteCard";
+import Navigation from "./Navigation";
+import { throttle } from "../lib/utils";
 
 type Site = CollectionEntry<"sites">;
 
 export default function App({ sites }: { sites: Site[] }) {
   const s = useSites(sites);
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const scrollLettersSpace = useRef<HTMLDivElement>(null);
-  // const [letterHeight, setLetterHeight] = useState();
+  const [scrollSection, setScrollSection] = useState(
+    () => "header"
+    // typeof document !== "undefined" ? document.location.hash.replace(/#/, "") : "header"
+  );
+  const scrollSectionRef = useRef(scrollSection);
 
-  // useEffect(() => {
-  //   scr
-  // }, [])
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      const halfHeight = window.innerHeight / 2;
+      const elements = Array.from(document.querySelectorAll("[id]"));
+      const index = elements
+        .map((el) => {
+          const { top } = el.getBoundingClientRect();
+          return [top, el.id] as [number, string];
+        })
+        .sort((a, b) => a[0] - b[0])
+        .find(([num, id], i, arr) => {
+          return num < halfHeight && (i < arr.length - 1 ? arr[i + 1][0] > halfHeight : true);
+        });
 
-  function handleScroll() {
-    console.log("Scrolling");
-  }
+      if (index) {
+        if (scrollSectionRef.current !== index[1]) {
+          setScrollSection(index[1]);
+          scrollSectionRef.current = index[1];
+        }
+      }
+    }, 100);
 
-  const lettersEntries = Array.from(s.byLetter);
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const lettersEntries = useMemo(() => Array.from(s.byLetter), [s.byLetter]);
+  const letters = useMemo(() => Array.from(s.byLetter.keys()), [s.byLetter]);
 
   return (
-    <div
-      className="relative bg-slate-600 text-white"
-      // ref={scrollerRef}
-      // onScroll={handleScroll}
-    >
-      <nav className="fixed z-10 inset-y-0 right-0 w-12 sm:w-20 bg-black/30 flex flex-col pb-2">
-        <a href="#">
-          <img src={s.imageBySlug("spaceport")} className="w-12 h-12 sm:w-20 sm:h-20" />
-        </a>
-        <div className="overflow-hidden flex-grow flex flex-col items-center">
-          {lettersEntries.map(([letter, _]) => (
-            <a
-              href={`#${letter}`}
-              key={letter}
-              style={{ height: `${100 / lettersEntries.length}%` }}
-            >
-              {letter}
-            </a>
-          ))}
-        </div>
-      </nav>
-      <div className="relative h-screen overflow-hidden pr-12 sm:pr-20">
+    <div className="relative bg-slate-600 text-white">
+      <Navigation
+        letters={letters}
+        thumb={s.imageBySlug("spaceport")}
+        currentlyAt={scrollSection}
+        onPick={(letter) => console.log("Picking letter", letter)}
+        onPreview={(letter) => console.log("Previewing letter", letter)}
+      />
+      <div className="relative h-screen overflow-hidden pr-12 sm:pr-20" id="header">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-right bg-cover bg-[url(/assets/bg.avif)]"></div>
         <Header />
       </div>
@@ -64,6 +79,11 @@ export default function App({ sites }: { sites: Site[] }) {
             </div>
           </div>
         ))}
+      </div>
+      <div id="footer" className="h-screen">
+        <div>
+          <h2>DIRECTORY OF POSSIBILITY MANAGEMENT (PM) WEBSITES</h2>
+        </div>
       </div>
     </div>
   );
