@@ -81,7 +81,7 @@ export default function SiteCard({ site, s }: { site: Site; s: SitesUtils }) {
               className="bg-black/10 rounded-sm overflow-hidden border border-gray-400 mb-2 mr-2"
             >
               {typeof otherSite === "string" ? (
-                s.linkifySlug(otherSite)
+                s.toLink(otherSite)
               ) : (
                 <a href={otherSite.url}>{otherSite.text}</a>
               )}

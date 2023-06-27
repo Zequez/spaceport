@@ -1,11 +1,11 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
-
 import vercel from "@astrojs/vercel/static";
+import AstroPWA from "@vite-pwa/astro";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind({ applyBaseStyles: false })],
+  integrations: [react(), tailwind({ applyBaseStyles: false }), AstroPWA()],
   adapter: vercel(),
 });
